@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Система управління бібліотекою</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Система Управління Бібліотекою</h1>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Додати Книгу</h5>
+          <form id="addBookForm">
+            <div class="mb-3">
+              <input type="text" name="title" class="form-control" placeholder="Назва книги" />
+            </div>
+            <div class="mb-3">
+              <input type="text" name="author" class="form-control" placeholder="Автор" />
+            </div>
+            <div class="mb-3">
+              <input type="text" name="year" class="form-control" placeholder="Рік видання" />
+            </div>
+            <button type="submit" class="btn btn-success">Додати Книгу</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Додати Користувача</h5>
+          <form id="addUserForm">
+            <div class="mb-3">
+              <input type="text" name="name" class="form-control" placeholder="Ім'я" />
+            </div>
+            <div class="mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Email" />
+            </div>
+            <button type="submit" class="btn btn-success">Додати Користувача</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Список Книг</h5>
+          <ul id="bookList" class="list-group">
+            <!-- cписок книг буде тут -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Список Користувачів</h5>
+          <ul id="userList" class="list-group">
+            <!-- cписок користувачів буде тут -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Borrow Book Modal -->
+    <div id="borrowBookModal" class="modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Borrow Book</h5>
+            <button type="button" class="btn-close" data-modal-id="borrowBookModal"></button>
+          </div>
+          <div class="modal-body">
+            <label for="borrowUserId">Enter User ID:</label>
+            <input type="text" id="borrowUserId" class="form-control" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="confirmBorrowButton" class="btn btn-primary">Confirm</button>
+            <button type="button" class="btn btn-secondary" data-modal-id="borrowBookModal">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Book Action Modal -->
+    <div id="bookActionModal" class="modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Success</h5>
+            <button type="button" class="btn-close" data-modal-id="bookActionModal"></button>
+          </div>
+          <div class="modal-body">
+            <p id="bookActionModalMessage"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-modal-id="bookActionModal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Error</h5>
+            <button type="button" class="btn-close" data-modal-id="errorModal"></button>
+          </div>
+          <div class="modal-body">
+            <p id="errorModalMessage"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-modal-id="errorModal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="./dist/bundle.js"></script>
+  </body>
+</html>
